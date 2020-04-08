@@ -64,4 +64,18 @@ public class SalesOrderService {
 
 	}
 
+	public SalesOrder updateOrder(SalesOrder salesOrder) {
+		// TODO Auto-generated method stub
+		Optional<SalesOrder> existingOrder = salesOrderRepository.findById(salesOrder.getSalesOrderId());
+		if(existingOrder.isPresent()) {
+			SalesOrder newSalesOrder = existingOrder.get();
+			newSalesOrder.setSalesOrderAmount(salesOrder.getSalesOrderAmount());
+			newSalesOrder.setSalesOrderDescription(salesOrder.getSalesOrderDescription());
+			return salesOrderRepository.save(newSalesOrder);
+		} else {
+			throw new RuntimeException("Resource not found to update.");
+		}
+		
+	}
+
 }
