@@ -4,13 +4,10 @@ import org.apache.commons.codec.binary.Base64;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * Hello world!
- *
- */
 @SpringBootApplication
 public class App {
 	public static void main(String[] args) {
+		// Base 64 encoding decoding example below:
 		byte[] encodeBase64 = Base64.encodeBase64("Sujay".getBytes());
 		System.out.println("Encoded String: " + new String(encodeBase64));
 		byte[] decodeBase64 = Base64.decodeBase64(encodeBase64);

@@ -54,4 +54,14 @@ public class SalesOrderService {
 		}
 	}
 
+	public void deleteSalesOrderById(Long salesOrderId) {
+		Optional<SalesOrder> salesOrder = salesOrderRepository.findById(salesOrderId);
+		if (salesOrder.isPresent()) {
+			salesOrderRepository.deleteById(salesOrderId);
+		} else {
+			throw new RuntimeException("Record not found");
+		}
+
+	}
+
 }
